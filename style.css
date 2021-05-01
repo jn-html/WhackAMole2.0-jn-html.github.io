@@ -60,8 +60,8 @@ h4 {
 }
 
 .game {
-  width: 800px;
-  height: 600px;
+  width: 900px;
+  height: 800px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;

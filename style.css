@@ -21,6 +21,21 @@ h1 {
   margin-bottom: 0;
 }
 
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+.goStart {
+  width: 10rem;
+  height: 5rem;
+  font-size: 15px;
+  border: 1rem solid green;
+  background-color: greenyellow;
+}
+
 .score {
   background: rgba(255,255,255,0.2);
   padding: 0 3rem;

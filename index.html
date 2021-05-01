@@ -13,8 +13,9 @@
   <body>
 
     <div class="game-header">
-      <h1>Whack-a-mole! <span class="score">0</span></h1>
-      <!-- <h3>Speed Selector</h3>
+      <h1>Whack-a-crackhead-mole! <span class="score">0</span></h1>
+      <h3>Speed Selector</h3>
+      <h4>Don't bother, speed level not functionnal</h4>
       <select id="game-speed"> 
         <option value="grandpa-speed">GrandPa Speed</option>
         <option value="normal-speed">Normal Speed</option>
@@ -63,10 +64,11 @@
       let timeUp = false;
       let score = 0 ;
 
-      // random amout of time
+      // random amount of time
       function randomTime(min, max) {
         return Math.round(Math.random() * (max - min) + min);
       }
+      
 
       // pick a random hole for the mole to pop up
       function randomHole(holes) {
@@ -85,7 +87,9 @@
 
       // make the mole pop up the selected hole
       function pop() {
+        // Mole speed level
         const time = randomTime(200, 1000);
+        
         const hole = randomHole(holes);
         console.log(time, hole);
         hole.classList.add('up');
@@ -102,6 +106,7 @@
         timeUp = false;
         score = 0;
         pop();
+        // set in game timer, not visible yet
         setTimeout(()=> timeUp = true, 15000)
       }
 
@@ -113,6 +118,8 @@
       }
 
       moles.forEach(mole => mole.addEventListener('click', bonk));
+      // see below for better mobile UX
+      // moles.forEach(mole => mole.addEventListener('mouseEvent', bonk));
 
     </script>
   </body>

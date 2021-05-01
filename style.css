@@ -21,6 +21,13 @@ h1 {
   margin-bottom: 0;
 }
 
+h3 {
+  text-align: center;
+  font-size: 5rem;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
 .game-header {
   display: flex;
   flex-direction: column;
@@ -50,6 +57,10 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
+}
+
+select#game-speed {
+  margin: 0 0 4rem 0;
 }
 
 .hole {

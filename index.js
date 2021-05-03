@@ -5,10 +5,10 @@ const holes = document.querySelectorAll(".hole");
       const gameSpeed = document.querySelector("#game-speed");
       const speed = document.querySelectorAll(".speed");
 
-      console.log(gameSpeed);
-      console.log(gameSpeed.value);
-      console.log(speed);
-      console.log(speed.value);
+      // console.log(gameSpeed);
+      // console.log(gameSpeed.value);
+      // console.log(speed);
+      // console.log(speed.value);
 
       // To prevent having a mole pop up twice at the same place in a row
       let lastHole;
@@ -30,7 +30,7 @@ const holes = document.querySelectorAll(".hole");
           console.log('Ah nah that\'s the same one bud');
           return randomHole(holes);
         }
-        console.log(holes.length);
+        // console.log(holes.length);
 
         lastHole = hole;
         return hole;
@@ -46,9 +46,14 @@ const holes = document.querySelectorAll(".hole");
         
         let time = 1000;
 
-        if (gameSpeed.value === 'normalSpeed') {
-          time = normalSpeed;
-        } time = ninjaSpeed ;
+
+        // if (gameSpeed.value === 'normalSpeed') {
+        //   time = normalSpeed;
+        // } time = ninjaSpeed ;
+
+        // console.log(time);
+        // console.log(gameSpeed.value);
+        console.log(speed.value);
         
         const hole = randomHole(holes);
         // console.log(time, hole);
@@ -67,7 +72,7 @@ const holes = document.querySelectorAll(".hole");
         score = 0;
         pop();
         // set in game timer, not visible yet
-        setTimeout(()=> timeUp = true, 5000)
+        setTimeout(()=> timeUp = true, 10000)
       }
 
       function bonk(e) {

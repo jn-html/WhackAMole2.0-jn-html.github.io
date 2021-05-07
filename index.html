@@ -9,6 +9,7 @@
       type="text/css"
     />
     <link rel="stylesheet" href="style.css" />
+
   </head>
   <body>
 
@@ -16,11 +17,13 @@
       <h1>Whack-a-mole! <span class="score">0</span></h1>
       <h3>Speed Selector</h3>
       <h4>Don't bother, speed level not functional</h4>
-      <select id="game-speed"> 
-        <option class="speed" value="grandpaSpeed">GrandPa Speed</option>
-        <option class="speed"  value="normalSpeed">Normal Speed</option>
-        <option class="speed" value="ninjaSpeed">Ninja Speed</option>
-      </select>
+
+        <select id="game-speed"> 
+          <option value="grandpaSpeed">GrandPa Speed</option>
+          <option selected value="normalSpeed">Normal Speed</option>
+          <option value="ninjaSpeed">Ninja Speed</option>
+        </select>
+
       <button class="goStart" onClick="startGame()">Start!</button>
     </div>
 

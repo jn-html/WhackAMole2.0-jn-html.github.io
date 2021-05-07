@@ -91,7 +91,7 @@ select#game-speed {
 
 .mole {
   background: url('mole.svg') bottom center no-repeat;
-  background-size: 45%;
+  background-size: 50%;
   position: absolute;
   top: 100%;
   width: 100%;

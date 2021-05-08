@@ -8,13 +8,6 @@ let gameSpeed = document.getElementById("game-speed");
 
 let value = gameSpeed.options[gameSpeed.selectedIndex].value;
 
-let speed = document.querySelectorAll(".speed");
-
-const normalSpeed = randomTime(500, 800);
-const ninjaSpeed = randomTime(50, 200);
-const grandpaSpeed = randomTime(1000, 1500);
-
-
 // To prevent having a mole pop up twice at the same place in a row
 let lastHole;
 let timeUp = false;

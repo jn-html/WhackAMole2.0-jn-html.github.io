@@ -9,7 +9,7 @@ let gameSpeed = document.getElementById("game-speed");
 let value = gameSpeed.options[gameSpeed.selectedIndex].value;
 
 let countdown;
-const jesaispas = document.querySelectorAll('[data-time');
+const timeSet = document.querySelectorAll('[data-time');
 const timerDisplay = document.getElementById('counter');
 
 // To prevent having a mole pop up twice at the same place in a row

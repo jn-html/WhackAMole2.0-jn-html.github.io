@@ -102,3 +102,9 @@ select#game-speed {
 .hole.up .mole {
   top: 0;
 }
+
+.timer-counter {
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(12, 24, 95);
+}

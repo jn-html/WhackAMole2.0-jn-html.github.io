@@ -2,18 +2,28 @@ const holes = document.querySelectorAll(".hole");
 const scoreBoard = document.querySelector(".score");
 const moles = document.querySelectorAll(".mole");
 
+
 let gameSpeed = document.getElementById("game-speed");
 // // Alternatively if your select resides inside a form, you could use this:
 // document.getElementById("myForm").elements["a_drop_down_box"];
 
+// Get the value of each option in the select list
 let value = gameSpeed.options[gameSpeed.selectedIndex].value;
 
 // To prevent having a mole pop up twice at the same place in a row
 let lastHole;
-let timeUp = false;
-let score = 0 ;
 
-// random amount of time
+let timeUp = false;
+let timer = 15000;
+let score = 0 ;
+let counter = timer / 1000;
+
+// console.log(counter);
+
+document.getElementById('counter').innerHTML = counter;
+
+
+// random amount of time for a mole to pop up
 function randomTime(min, max) {
   return Math.round(Math.random() * (max - min) + min);
 }
@@ -25,7 +35,7 @@ function randomHole(holes) {
   const hole = holes[idx];
   // to prevent having twice the same hole, if it's the same we run randomHole again
   if (hole === lastHole) {
-    console.log('Ah nah that\'s the same one bud');
+    // console.log('Ah nah that\'s the same one bud');
     return randomHole(holes);
   }
   // console.log(holes.length);
@@ -45,6 +55,7 @@ function pop() {
   const normalSpeed = randomTime(300, 800);
   const ninjaSpeed = randomTime(200, 400);
   
+  // modify speed of mole pop up depending on select
   if (gameSpeed.value === 'ninjaSpeed') {
     time = ninjaSpeed
   } else if (gameSpeed.value === 'grandpaSpeed') {
@@ -52,11 +63,6 @@ function pop() {
   } else {
     time = normalSpeed
   }
-  
-
-  console.log(time);
-  console.log(gameSpeed.value);
-  // console.log(value);
   
   const hole = randomHole(holes);
   // console.log(time, hole);
@@ -69,13 +75,52 @@ function pop() {
   }, time);
 }
 
-function startGame() {
-  scoreBoard.textContent = 0;
+function countDownFinish() {
+  clearInterval(gameCounter);
+  document.getElementById("counter").innerHTML = counter;	
+}
+
+function countDown() {
+  gameCounter = counter
+  
+  setInterval(() => {
+    document.getElementById('counter').innerHTML = gameCounter;
+
+    if (gameCounter === 0) countDownFinish();
+    else {
+      gameCounter--;
+      // console.log(gameCounter);
+      // console.log(counter);
+    }    
+  }, 1000); 
+  
+}
+
+function gameOver() {
+  // let timer = 15000;
+  // timeUp = false;
+  counter = timer / 1000;
+  
+  setTimeout(()=> {
+    timeUp = true;
+    console.log('Game Over');
+  }, timer)  
+}
+
+function startGame() {  
   timeUp = false;
+  scoreBoard.textContent = 0;
   score = 0;
+  countDown()
   pop();
+  gameOver();
+
   // set in game timer, not visible yet
-  setTimeout(()=> timeUp = true, 10000)
+  // setTimeout(()=> {
+  //   timeUp = true;
+  //   console.log('Game Over');
+  // }, timer)
+
 }
 
 function bonk(e) {
@@ -85,6 +130,10 @@ function bonk(e) {
   scoreBoard.textContent = score;
 }
 
+// Setting up a timer for later use
+
+
 moles.forEach(mole => mole.addEventListener('click', bonk));
+
 // see below for better mobile UX
 // moles.forEach(mole => mole.addEventListener('', bonk));

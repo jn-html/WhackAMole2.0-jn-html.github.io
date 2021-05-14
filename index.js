@@ -8,10 +8,44 @@ let gameSpeed = document.getElementById("game-speed");
 
 let value = gameSpeed.options[gameSpeed.selectedIndex].value;
 
+let countdown;
+const jesaispas = document.querySelectorAll('[data-time');
+const timerDisplay = document.getElementById('counter');
+
 // To prevent having a mole pop up twice at the same place in a row
 let lastHole;
 let timeUp = false;
 let score = 0 ;
+
+
+function timer(seconds) {
+  clearInterval(countdown);
+  const now = Date.now(); // the current time in miliseconds
+  const then = now + seconds * 1000;
+  displayTimeLeft(seconds);
+
+  countdown = setInterval(()=> {
+    const secondsLeft = Math.round((then - Date.now()) / 1000);
+    if(secondsLeft < 0) {
+      clearInterval(countdown);
+      return;
+    }
+    displayTimeLeft(secondsLeft);
+    // displayEndTime(then);
+  }, 1000);
+}
+
+function displayTimeLeft(seconds) {
+  // convert milisecs into seconds minutes etc
+  // const minutes = Math.floor(seconds / 60); 
+  const remainderSeconds = seconds % 60;
+  const display = `${remainderSeconds < 10 ? '0' : '' }${remainderSeconds}`;
+  document.span = display;
+  timerDisplay.textContent = display;
+  // console.log({minutes, remainingSeconds});
+
+  // console.log({minutes, remainingSeconds});
+}
 
 // ### RANDOMTIME (start) ###
 
@@ -88,8 +122,9 @@ function startGame() {
   timeUp = false;
   score = 0;
   pop();
+  timer(15);
   // set in game timer, not visible yet
-  setTimeout(()=> timeUp = true, 10000)
+  setTimeout(()=> timeUp = true, 15000)
 }
 // ### GAME START (end) ########
 

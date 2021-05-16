@@ -85,7 +85,7 @@ function pop() {
   // const time = randomTime(200, 1000);
   let time = 1000;
 
-  const testSpeed = 2000;
+  // const testSpeed = 2000;
   const grandpaSpeed = randomTime(500, 1000);
   const normalSpeed = randomTime(300, 800);
   const ninjaSpeed = randomTime(200, 400);
